@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.masterapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Master App</name>
+<widget id="com.josue45.testergApp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Testing App</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+      This is josue45.com tester app.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="info@josue45.com" href="http://josue45.com">
+        The 45 team.
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -43,21 +43,12 @@
     <gap:plugin name="org.apache.cordova.vibration" />
     <icon src="icon.png" />
    
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
-    <gap:splash gap:platform="blackberry" src="www/res/screen/blackberry/screen-225.png" />
-    <gap:splash gap:platform="ios" height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
-    <gap:splash gap:platform="ios" height="960" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1136" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
-    <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
-    <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
+   
     <access origin="*" />
-    <access origin="https://www.youtube.com" />
-    <access origin="http://www.youtube.com" />
+   
     <plugin name="cordova-plugin-whitelist" version="1" />
+	<allow href="https://www.youtube.com" />
+    <allow-intent href="http://www.youtube.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
