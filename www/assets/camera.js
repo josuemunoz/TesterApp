@@ -921,6 +921,17 @@ getUrl.prototype.car = function car(){
 					c ? url += "&make="+escape(c)  : url;
 				}
 				
+				if(event.target.id == "browseByPrice"){
+					c = Number(prompt("What price car are you looking for?", ""));
+					if(isNaN(c) || typeof c !== "number"){
+						alert("Please only numbers");
+						
+						c ? url += "&price=1000"  : url;
+					}else{
+						c ? url += "&price="+escape(c)  : url;
+						}
+					}
+				
 				
 				if(event.target.id == "browseByColor"){
 				//alert(event.target.id);
@@ -929,7 +940,7 @@ getUrl.prototype.car = function car(){
 				}
 				
 				var t= x(event.target.id).firstChild.nodeValue;				
-				//alert(x(event.target.id).firstChild.nodeValue);
+				 alert(x(event.target.id).firstChild.nodeValue + "line 943");
 				var tt = document.createTextNode(t);
 				x('carTitle').innerHTML = tt.nodeValue;
 				x('b').innerHTML = "";
@@ -938,7 +949,7 @@ getUrl.prototype.car = function car(){
 				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				ajax.onreadystatechange = function(){
 						if(ajax.readyState == 4 & ajax.status == 200){
-							//alert(ajax.responseText.lenght);
+							//alert(ajax.responseText);
 							
 							
 							var a = JSON.parse(ajax.responseText);
@@ -971,17 +982,41 @@ function createImage(a, i){
 	//function createImage(image, userid, model, year, carid){
 	//alert(a[i].image);
 	
-	var img = document.createElement('img'); var span = document.createElement("span");
+	var img = document.createElement('img');
+	var br = document.createElement("br");
+	var span = document.createElement("span");
+	var spanPrice = document.createElement("span");
+	var spanMake = document.createElement("span");
+	var spanModel = document.createElement("span");
+	var spanYear = 	document.createElement("span");
+	
 	//alert(model.length)
 		if(a[i].model.length > 10){
-			var m = a[i].model.substring(0,9)+"...";
+			var m = a[i].model.substring(0,8)+"...";
 			}else{
 				var m = a[i].model;
 				}
-	var textNode = document.createTextNode(a[i].year+ " "+ m.toUpperCase());
+		if(a[i].make.length > 9){
+			var make = a[i].make.substring(0,8)+"...";
+			}else{
+				var make = a[i].make;
+				}
+	var make = document.createTextNode("Make: "+make.toUpperCase());
+	var price = document.createTextNode("Price: "+a[i].price);
+	var model = document.createTextNode("Model: "+ m.toUpperCase());
+	var year = document.createTextNode("Year: "+ a[i].year);
+	
+	
 		span.setAttribute("id", "title");
+		span.setAttribute("class", "price");
 		
-		span.appendChild(textNode);
+		//css for span is on ccs.css line 82
+		//br.appendChild(textNode);
+		spanMake.appendChild(make);
+		spanModel.appendChild(model);
+		spanPrice.appendChild(price);
+		spanYear.appendChild(year);
+		
 	var li = document.createElement('li');
 	var aa = document.createElement('a');
 		//a.setAttribute("href", "#viewItemPlease");
@@ -991,7 +1026,13 @@ function createImage(a, i){
 		aa.appendChild(img);
 		li.appendChild(aa);
 		li.setAttribute("id", i);
-		li.appendChild(span);
+		
+		
+		
+		li.appendChild(spanPrice);
+		li.appendChild(spanMake);
+		li.appendChild(spanModel);
+		li.appendChild(spanYear);
 		this.jsonFile = a;
 		x("b").appendChild(li);
 		li.addEventListener("click", gothere, false);
@@ -1029,7 +1070,7 @@ function gothere(){
 						
 						place.appendChild(ul);
 						
-						
+					
 						
 						
 						//alert(jsonFile[this.id].model);
